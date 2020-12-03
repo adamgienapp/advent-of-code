@@ -15,9 +15,9 @@ let tobogganRide = (hill, dX, dY = 1) => {
   return treeCount;
 }
 
-// tobogganRide(input, 3); //262
+// tobogganRide(input, 3);
 
 
 /* Part 2 */
 
-// tobogganRide(input, 1) * tobogganRide(input, 3) * tobogganRide(input, 5) * tobogganRide(input, 7) * tobogganRide(input, 1, 2); //2698900776
+// tobogganRide(input, 1) * tobogganRide(input, 3) * tobogganRide(input, 5) * tobogganRide(input, 7) * tobogganRide(input, 1, 2);
