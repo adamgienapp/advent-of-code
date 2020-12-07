@@ -1,3 +1,4 @@
+// Input parsing
 let input = document.body.children[0].innerText
                 .split('.\n')
                 .map(rule => rule.split(' bags contain ')
