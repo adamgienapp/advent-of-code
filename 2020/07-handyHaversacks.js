@@ -34,8 +34,8 @@ let findBagsThatCanContainShinyGold = (bags) => {
         }
         if (!seen.has(bag) && !badBags.has(bag)) {
             seen.add(bag);
-            if (rules[bag]) {
-                for (const key in rules[bag]) {
+            if (bags[bag]) {
+                for (const key in bags[bag]) {
                     if (helper(key, seen)) {
                         goodBags.add(bag);
                         return true;
@@ -50,7 +50,7 @@ let findBagsThatCanContainShinyGold = (bags) => {
         }
     }
 
-    for (const bag in rules) {
+    for (const bag in bags) {
         helper(bag, new Set());
     }
 
