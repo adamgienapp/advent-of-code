@@ -40,13 +40,13 @@ let findMagicTime = (buses) => {
     }
     
     let num = targets[0][0];
-    let denom = num;
+    let lcd = num;
     for (let i = 1; i < targets.length; i++) {
         let [int, rem] = targets[i];
         while ((num + rem) % int !== 0) {
-            num += denom;
+            num += lcd;
         }
-        denom = denom * int;
+        lcd = lcd * int;
     }
 
     return num;
