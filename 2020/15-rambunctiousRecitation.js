@@ -2,21 +2,21 @@ let input = [20,9,11,0,1,2];
 
 // Solution
 let findNthNumber = (starters, n) => {
-  const memory = {};
+  const memory = new Map();
 
   for (let i = 0; i < starters.length; i++) {
-    memory[starters[i]] = i;
+    memory.set(starters[i], i);
   }
 
   let turn = starters.length;
   let next = 0;
   while (turn < n - 1) {
-    if (memory[next] !== undefined) {
+    if (memory.has(next)) {
       let temp = next;
-      next = turn - memory[next];
-      memory[temp] = turn;
+      next = turn - memory.get(next);
+      memory.set(temp, turn);
     } else {
-      memory[next] = turn;
+      memory.set(next, turn);
       next = 0;
     }
     turn++;
