@@ -4,9 +4,7 @@ let input = document.body.children[0].innerText.split('\n')
                                                 .map(row => row.split(''));
 
 let pocketDimension = [input];
-
 let pocket4dDimension = [[input]];
-
 
 
 // Part 1
