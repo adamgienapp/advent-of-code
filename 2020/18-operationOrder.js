@@ -58,7 +58,7 @@ let t5 = '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2'; // 13632
 
 
 // Part 1 Ans
-let part1 = input.map(exp => evalString(exp)).reduce((a,b) => a + b, 0);
+let part1 = input.reduce((a,b) => a + evalString(b), 0);
 console.log(part1);
 
 
@@ -109,5 +109,5 @@ let t10 = editInput(t5); // 23340
 // Part 2 Ans
 let newInput = input.map(exp => editInput(exp));
 
-let part2 = newInput.map(exp => evalString(exp)).reduce((a,b) => a + b, 0);
+let part2 = newInput.reduce((a,b) => a + evalString(b), 0);
 console.log(part2);
