@@ -22,7 +22,17 @@ let messages = input[1].split('\n').slice(0,-1);
 
 
 // Solution
-let assembleMatches = (rule) => {
+let findEdgeLen = (strings, max) => {
+    let len = max ? 0 : Infinity;
+
+    for (const string of strings) {
+        len = max ? Math.max(len, string.length) : Math.min(len, string.length);
+    }
+
+    return len;
+}
+
+let assembleMatches = (rule, maxLen) => {
     const memo = new Map();
 
     const helper = (ruleNum) => {
@@ -36,6 +46,10 @@ let assembleMatches = (rule) => {
             res.push(data);
         } else {
             for (const sub of data) {
+                if (sub.includes(ruleNum)) {
+                    let minResLen = findEdgeLen(res, false);
+                    if (minResLen >= maxLen) continue;
+                }
                 const subRes = helper(sub[0]);
                 if (sub[1]){
                     const otherSubRes = helper(sub[1]);
@@ -101,3 +115,11 @@ console.log(part1);
 ruleData.set(8, [[42], [42, 8]]);
 ruleData.set(11, [[42, 31], [42, 11, 31]]);
 
+let maximumMessageLength = findEdgeLen(messages, true);
+
+/* assembleMatches incomplete for part 2 */
+
+// let updatedMatches = assembleMatches(0, maximumMessageLength);
+
+// let part2 = validMessageCount(messages, updatedMatches);
+// console.log(part2);
